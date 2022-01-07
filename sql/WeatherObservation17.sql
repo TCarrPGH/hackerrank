@@ -11,7 +11,7 @@ Query the Western Longitude (LONG_W)where the smallest Northern Latitude (LAT_N)
 | LONG_W      | NUMERIC    |
 +-------------+------------+
 
-SOLOUTION
+SOLUTION
 */ 
 
 
