@@ -1,3 +1,4 @@
+
 I Love Lance & Janice
 =====================
 
@@ -41,3 +42,28 @@ Output:
     did you see last night's episode?
 
 Use verify [file] to test your solution and see how it does. When you are finished editing your code, use submit [file] to submit your answer. If your solution passes the test cases, it will be removed from your home folder.
+
+Python Solution
+==========
+This is the first iteration of my solution, I believe it can be done via list-comprehension but I am not quite there yet. This solution works by:
+* Parsing out the index of the input string 
+* The corresponding char of the alphabet can be found by subtracting 26 (length of the alphabet) from the index
+* The characters in the input sentence are swapped for the corresponding ones
+*  Since capital letters and punctuation is skipped, nothing needs to be done 
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+```
+def solution(x):
+    str_to_lst = list(x)
+    alpha = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+    for index, val in enumerate(str_to_lst):
+        for i, v in enumerate(alpha):
+            if val == v:
+                ch = len(alpha) - (i +1)
+                str_to_lst[index] = alpha[ch]
+                # print(alpha[ch])
+            else:
+                continue
+    new_x = (''.join(map(str, str_to_lst)))
+    return new_x
+```
