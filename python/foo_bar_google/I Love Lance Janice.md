@@ -61,7 +61,6 @@ def solution(x):
             if val == v:
                 ch = len(alpha) - (i +1)
                 str_to_lst[index] = alpha[ch]
-                # print(alpha[ch])
             else:
                 continue
     new_x = (''.join(map(str, str_to_lst)))
