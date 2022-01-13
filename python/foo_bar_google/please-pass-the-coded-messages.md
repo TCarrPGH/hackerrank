@@ -37,3 +37,46 @@ Input:
 solution.solution([3, 1, 4, 1, 5, 9])
 Output:
     94311
+
+Solution
+==========
+
+I used itertools to find all combinations of a given number. After that I used some logic to see if the number was divisible by 3. I kept the highest number.
+```
+import itertools
+
+
+def solution(l):
+    n = len(l)
+    s = sorted(l, reverse=True)
+    num = ''.join(map(str, sorted(l, reverse=True)))
+    temp = 0  # returns 0 if not divisible by 3
+    # if the entire number is already divisible by 3, return to save time
+    if int(num) % 3 == 0:
+        return s
+
+    if int(num) == 1:
+        return 0
+
+    if int(num) < 0:
+        return 0
+
+    if int(num) == 0:
+        return 0
+    # find all permutations of the list
+    temp = 0
+    for i in range(len(s)):
+        a = itertools.combinations(s, i + 1)
+        # print(list(a))
+        for j in a:
+            res = int(''.join(map(str, j)))
+            if res % 3 == 0:
+                if res > temp:
+                    temp = res
+    print(temp)
+
+
+
+plates2 = [3, 1, 4, 1, 5, 9]
+solution(plates2)
+```
